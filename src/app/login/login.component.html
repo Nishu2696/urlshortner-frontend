@@ -1,0 +1,142 @@
+<header>
+    <div class="conatiner">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand text-white" href="#">Login/Register</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-lg-auto">
+                    <!--<li class="nav-item active">
+              <a class="nav-link text-white bg-dark" routerLink="">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white bg-dark" routerLink="/login">Log-in</a>
+            </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link text-white bg-dark" routerLink="">Register</a>
+                    </li>
+                    <!--<li class="nav-item">
+                        <a class="nav-link text-white bg-dark" (click)="urlshortner()">URL-SHORTNER</a>
+                    </li>-->
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="container-fluid py-5">
+    <div class="card" style="width: 600px; margin: auto;">
+        <div class="card-header bg-primary text-white">
+            <h4 class="text-uppercase text-center">Log-In/Sign-In</h4>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="login" (submit)="senddata()">
+                <!--<div class="row">
+                    <div class="col-sm-6 col-md-6 col-xs-12">
+
+                        <label>Fisrt Name:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                            <input id="name" type="text" class="form-control" formControlName="firstName">
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-xs-12">
+
+                        <label>Last Name:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                            <input id="name" type="text" class="form-control" formControlName="lastName">
+                        </div>
+
+                    </div>
+                </div>-->
+                <div class="row">
+                    <!--<div class="col-sm-6 col-md-6 col-xs-12">
+
+                        <label>Phone Number:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-phone"></i>
+                                </span>
+                            </div>
+                            <input id="name" type="number" class="form-control" formControlName="phone_number">
+                        </div>
+
+                    </div>-->
+                    <div class="col-sm-12 col-md-12 col-xs-12">
+
+                        <label>Email:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </div>
+                            <input [ngClass]="{'outbox': (!login.get('email').valid && login.get('email').dirty)}"
+                                type="text" class="form-control" formControlName="email">
+                            <br>
+                            <span *ngIf="(!login.get('email').valid && login.get('email').dirty)"
+                                style="color: red;">Please Enter
+                                E-mail</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-xs-12">
+
+                        <label>Password:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input [ngClass]="{'outbox': (!login.get('password').valid && login.get('password').dirty)}"
+                                type="password" class="form-control" formControlName="password">
+                            <br>
+                            <span *ngIf="(!login.get('password').valid && login.get('password').dirty)"
+                                style="color: red;">Please
+                                Enter A Password</span>
+                        </div>
+
+                    </div>
+                    <!--<div class="col-sm-6 col-md-6 col-xs-12">
+
+                        <label>Confirm Password:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input id="name" type="password" class="form-control" formControlName="confirmpassword">
+                        </div>
+
+                    </div>-->
+                </div>
+                <div class="row">
+                    <div class="col-sm-5 col-md-5 col-xs-5 mt-4">
+                        <a class="text-primary" (click)="reset()">Forget Password?</a>
+                    </div>
+                    <div class="col-sm-5 col-md-5 col-xs-5">
+                        <input [disabled]="!login.valid ? true: false" type="submit"
+                            class="btn btn-outline-primary rounded-0 float-right mt-4" value="Log-in">
+                    </div>
+                </div>
+                <!--<button type="button" class="btn btn-outline-primary rounded-0 float-right">Register</button>-->
+            </form>
+        </div>
+    </div>
+</div>

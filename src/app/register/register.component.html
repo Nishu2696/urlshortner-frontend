@@ -1,0 +1,143 @@
+<header>
+    <div class="conatiner">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand text-white" href="#">Login/Register</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-lg-auto">
+                    <!--<li class="nav-item active">
+                        <a class="nav-link text-white bg-dark" routerLink="">Home <span class="sr-only">(current)</span></a>
+                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link text-white bg-dark" routerLink="/login">Log-in</a>
+                    </li>
+                    <!--<li class="nav-item">
+                        <a class="nav-link text-white bg-dark" routerLink="/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white bg-dark" routerLink="">Log-out</a>
+                    </li>-->
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="container-fluid py-5">
+    <div class="card" style="width: 600px; margin: auto;">
+        <div class="card-header bg-primary text-white">
+            <h4 class="text-uppercase text-center">Registration/Sign-Up</h4>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="registration" (submit)="senddata()">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-xs-12">
+
+                        <label>Fisrt Name:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                            <input [ngClass]="{'outbox': (!registration.get('firstName').valid && registration.get('firstName').dirty)}"  type="text" class="form-control" formControlName="firstName">
+                            <span *ngIf="(!registration.get('firstName').valid && registration.get('firstName').dirty)"
+                                style="color: red;">Please Enter
+                                First-Name</span>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-xs-12">
+
+                        <label>Last Name:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                            <input [ngClass]="{'outbox': (!registration.get('lastName').valid && registration.get('lastName').dirty)}"  type="text" class="form-control" formControlName="lastName">
+                            <span *ngIf="(!registration.get('lastName').valid && registration.get('lastName').dirty)"
+                                style="color: red;">Please Enter
+                                Last-Name</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-xs-12">
+
+                        <label>Phone Number:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-phone"></i>
+                                </span>
+                            </div>
+                            <input [ngClass]="{'outbox': (!registration.get('phone_number').valid && registration.get('phone_number').dirty)}"  type="number" class="form-control" formControlName="phone_number">
+                            <span *ngIf="(!registration.get('phone_number').valid && registration.get('phone_number').dirty)"
+                                style="color: red;">Please Enter
+                                Phone Number</span>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-xs-12">
+
+                        <label>Email:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </div>
+                            <input [ngClass]="{'outbox': (!registration.get('email').valid && registration.get('email').dirty)}"  type="text" class="form-control" formControlName="email">
+                            <span *ngIf="(!registration.get('email').valid && registration.get('email').dirty)"
+                                style="color: red;">Please Enter
+                                valid Email</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-xs-12">
+
+                        <label>Password:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input [ngClass]="{'outbox': (!registration.get('password').valid && registration.get('password').dirty)}" type="password" class="form-control" formControlName="password">
+                            <span *ngIf="(!registration.get('password').valid && registration.get('password').dirty)"
+                                style="color: red;">Please Enter
+                                Password</span>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-xs-12">
+
+                        <label>Confirm Password:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input [ngClass]="{'outbox': (!registration.get('confirmpassword').valid && registration.get('confirmpassword').dirty)}" type="password" class="form-control" formControlName="confirmpassword">
+                            <span *ngIf="(!registration.get('confirmpassword').valid && registration.get('confirmpassword').dirty)"
+                                style="color: red;">Please Enter
+                                confirm-password</span>
+                        </div>
+
+                    </div>
+                </div>
+                <input [disabled]="!registration.valid ? true: false" type="submit"
+                    class="btn btn-outline-primary rounded-0 float-right mt-4" value="Register">
+                <!--<button type="button" class="btn btn-outline-primary rounded-0 float-right">Register</button>-->
+            </form>
+        </div>
+    </div>
+</div>

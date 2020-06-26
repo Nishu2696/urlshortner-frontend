@@ -18,6 +18,7 @@ export class VerificationmailComponent implements OnInit {
     private service: BackendService,
     private router: Router
   ) {
+    alert("verification page");
     this.verify_email = this.activatedRoute.snapshot.params.id;
     this.verified_email = {
       "email": this.verify_email

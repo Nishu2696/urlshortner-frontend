@@ -23,7 +23,7 @@ export class VerificationmailComponent implements OnInit {
       "email": this.verify_email
     };
     this.url = {
-      "longUrl": "http://localhost:4000/login"
+      "longUrl": "https://sad-engelbart-700638.netlify.app/#/login"
     }
   }
 

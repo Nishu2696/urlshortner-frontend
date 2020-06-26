@@ -17,14 +17,14 @@ export class VerificationmailComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private service: BackendService,
     private router: Router
-  ) { 
+  ) {
     this.verify_email = this.activatedRoute.snapshot.params.id;
     this.verified_email = {
       "email": this.verify_email
     };
-    this.url = {
-      "longUrl": "https://sad-engelbart-700638.netlify.app/#/login"
-    }
+    // this.url = {
+    //   "longUrl": "http://localhost:4000/login"
+    // }
   }
 
   ngOnInit() {

@@ -26,7 +26,7 @@ export class BackendService {
 
   verifying_email(verify_details): Observable<any>{
     return this.http.post(`${this.link}verificationemail`, verify_details);
-    return this.http.post("http://localhost:3000/verificationemail", verify_details);
+    // return this.http.post("http://localhost:3000/verificationemail", verify_details);
   }
 
   shorturl(url_details): Observable<any>{

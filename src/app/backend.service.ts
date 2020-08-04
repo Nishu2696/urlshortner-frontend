@@ -16,7 +16,7 @@ export class BackendService {
 
   register(reg_details): Observable<any>{
     return this.http.post( `${this.link}register`, reg_details);
-    //return this.http.post("http://localhost:3000/register", reg_details);
+    // return this.http.post("http://localhost:3000/register", reg_details);
   }
 
   login(log_details): Observable<any>{
@@ -25,8 +25,8 @@ export class BackendService {
   }
 
   verifying_email(verify_details): Observable<any>{
-    return this.http.post(`${this.link}accountverify/:token/:email`, verify_details);
-    // return this.http.post("http://localhost:3000/verificationemail", verify_details);
+    return this.http.post(`${this.link}accountverify`, verify_details);
+    // return this.http.post("http://localhost:3000/accountverify/:token/:emai", verify_details);
   }
 
   shorturl(url_details): Observable<any>{
@@ -38,12 +38,12 @@ export class BackendService {
 
   reset(reset_details): Observable<any>{
     return this.http.post(`${this.link}forgotpassword`, reset_details);
-    //return this.http.post("http://localhost:3000/changepassword", reset_details)
+    //return this.http.post("http://localhost:3000/forgotpassword", reset_details)
   }
 
   change(change_details): Observable<any>{
     return this.http.post(`${this.link}resetpassword`, change_details);
-    //return this.http.post("http://localhost:3000/interchangepassword", change_details)
+    //return this.http.post("http://localhost:3000/resetpassword", change_details)
   }
 
   getdata(): Observable<any>{

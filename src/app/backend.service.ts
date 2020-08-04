@@ -25,7 +25,7 @@ export class BackendService {
   }
 
   verifying_email(verify_details): Observable<any>{
-    return this.http.post(`${this.link}verificationemail`, verify_details);
+    return this.http.post(`${this.link}accountverify/:token/:email`, verify_details);
     // return this.http.post("http://localhost:3000/verificationemail", verify_details);
   }
 
@@ -37,12 +37,12 @@ export class BackendService {
   
 
   reset(reset_details): Observable<any>{
-    return this.http.post(`${this.link}changepassword`, reset_details);
+    return this.http.post(`${this.link}forgotpassword`, reset_details);
     //return this.http.post("http://localhost:3000/changepassword", reset_details)
   }
 
   change(change_details): Observable<any>{
-    return this.http.post(`${this.link}interchangepassword`, change_details);
+    return this.http.post(`${this.link}resetpassword`, change_details);
     //return this.http.post("http://localhost:3000/interchangepassword", change_details)
   }
 

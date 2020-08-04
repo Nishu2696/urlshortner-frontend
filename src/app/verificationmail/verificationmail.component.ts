@@ -8,41 +8,25 @@ import { BackendService } from '../backend.service';
   styleUrls: ['./verificationmail.component.css']
 })
 export class VerificationmailComponent implements OnInit {
-
-  verify_email;
-  verified_email;
-  url;
+  email;
+  verificationToken;
+  verificationDone = false;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
+    private activeRoute: ActivatedRoute,
     private service: BackendService,
     private router: Router
   ) {
-    alert("verification page");
-    this.verify_email = this.activatedRoute.snapshot.params.email;
-    this.verified_email = {
-      "email": this.verify_email
-    };
-    // this.url = {
-    //   "longUrl": "http://localhost:4000/login"
-    // }
+    this.verificationToken = this.activeRoute.snapshot.params.token;
+    this.email = this.activeRoute.snapshot.params.email;
+    this.service.verifying_email({ verificationToken: this.verificationToken, email: this.email }).subscribe((data) => {
+      this.verificationDone = true;
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   ngOnInit() {
-
-    console.log("this.verified_email", this.verified_email);
-    console.log("this.verified_email", this.verified_email.value);
-    // this.service.verifying_email(this.verify_email).then((data) => {
-    //   this.router.navigate(['/login']);
-    // })
-    this.service.verifying_email(this.verified_email).subscribe((data) => {
-      alert("verification successsfull");
-      this.router.navigate(['/login']);
-      // this.service.shorturl(this.url).subscribe((data) => {
-      //   alert("long url has been successfully passed");
-      //   this.router.navigate(['/urlshortner']);
-      // });
-    });
   }
 
 }

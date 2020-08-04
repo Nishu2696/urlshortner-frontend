@@ -10,15 +10,15 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 
 const routes: Routes = [
   {
-    path: "login",
+    path: "",
     component: LoginComponent
   },
   {
-    path: "",
+    path: "register",
     component: RegisterComponent
   },
   {
-    path: "verificationemail/:id",
+    path: "verifyaccount/:token/:email",
     component: VerificationmailComponent
   },
   {
@@ -30,7 +30,7 @@ const routes: Routes = [
     component: ForgetpasswordComponent
   },
   {
-    path: "resetpassword/:id",
+    path: "reset/:token/:email",
     component: ResetpasswordComponent
   }
 ];

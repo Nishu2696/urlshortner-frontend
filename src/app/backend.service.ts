@@ -25,7 +25,7 @@ export class BackendService {
   }
 
   verifying_email(verify_details): Observable<any>{
-    return this.http.post(`${this.link}accountverify`, verify_details);
+    return this.http.post(`${this.link}accountverification`, verify_details);
     // return this.http.post("http://localhost:3000/accountverify/:token/:emai", verify_details);
   }
 

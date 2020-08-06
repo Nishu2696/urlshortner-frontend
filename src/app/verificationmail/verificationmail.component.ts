@@ -19,14 +19,16 @@ export class VerificationmailComponent implements OnInit {
   ) {
     this.verificationToken = this.activeRoute.snapshot.params.token;
     this.email = this.activeRoute.snapshot.params.email;
+  }
+
+  ngOnInit() {
+    console.log(this.verificationToken, this.email);
+    
     this.service.verifying_email({ verificationToken: this.verificationToken, email: this.email }).subscribe((data) => {
       this.verificationDone = true;
     }, (err) => {
       console.log(err);
     });
-  }
-
-  ngOnInit() {
   }
 
 }

@@ -12,6 +12,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { VerificationmailComponent } from './verificationmail/verificationmail.component'
 import { HttpClientModule } from '@angular/common/http';
 import { UrlshortnerComponent } from './urlshortner/urlshortner.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { UrlshortnerComponent } from './urlshortner/urlshortner.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

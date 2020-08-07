@@ -18,8 +18,8 @@
 
     <div class="row">
         <div class="col-lg-3" *ngFor="let url of shorturl; index as i">
-            <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Total Click : {{url.clickCount}}</div>
+            <div id="shortner" class="card border-secondary mb-3" style="max-width: 18rem;">
+                <div id="count" class="card-header">Total Click : {{url.clickCount}}</div>
                 <div class="card-body text-secondary">
                     <h6 class="card-title">
                         <a id="urlshortner" href="https://urlshortner-nishu.herokuapp.com/{{url.shortUrl}}" (click)="count(i)" target="_blank">https://urlshortner-nishu.herokuapp.com/{{url.shortUrl}}</a>

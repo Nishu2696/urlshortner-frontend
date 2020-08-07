@@ -51,7 +51,14 @@ export class UrlshortnerComponent implements OnInit {
     console.log("line-52",this.urlcount);
     this.service.getcount(this.urlcount).subscribe((data) => {
       console.log(data);
-      document.getElementById("urlshortner")
+      let longurl = data.shortUrl;
+      let count =`Total click: ${data.clickCount}`;
+      let url = document.getElementById("urlshortner");
+      url.setAttribute("href", longurl);
+      document.getElementById("shortner").appendChild(url);
+      let clickcount = document.getElementById("count");
+      clickcount.innerHTML = count;
+      document.getElementById("shortner").appendChild(clickcount);
       this.shorturl = data;
       console.log("this.shorturl,", this.shorturl);
     })

@@ -33,26 +33,30 @@ export class UrlshortnerComponent implements OnInit {
   senddata(){
     this.service.shorturl(this.urldata.value).subscribe((data) => {
       alert("longUrl has been sent");
-      this.changed();
+      // this.changed();
     });
   }
 
-  changed(){
-    this.service.getdata().subscribe((data) => {
-      //console.log(data);
-      this.shorturl = data;
-      console.log("shorturllist", this.shorturl);
-    });
-  }
+  // changed(){
+  //   this.service.getdata().subscribe((data) => {
+  //     //console.log(data);
+  //     this.shorturl = data;
+  //     console.log("shorturllist", this.shorturl);
+  //   });
+  // }
 
   count(value){
     alert("hello");
     //console.log("value", value);
     this.urlcount = this.shorturl[value].shortUrl;
     console.log(this.urlcount);
-    this.service.getcount(this.urlcount).subscribe((data) => {
-      console.log(data);
-      
+    this.service.getdata().subscribe((data)=>{
+      this.shorturl = data;
+      console.log("shorturllist", this.shorturl);
+      this.service.getcount(this.urlcount).subscribe((data) => {
+        console.log(data);
+        
+      })
     })
   }
 

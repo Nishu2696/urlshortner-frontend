@@ -47,16 +47,13 @@ export class UrlshortnerComponent implements OnInit {
 
   count(value){
     alert("hello");
-    //console.log("value", value);
     this.urlcount = this.shorturl[value].shortUrl;
-    console.log(this.urlcount);
-    // this.service.getdata().subscribe((data)=>{
-    //   this.shorturl = data;
-    //   console.log("shorturllist", this.shorturl);
-    // })
+    console.log("line-52",this.urlcount);
     this.service.getcount(this.urlcount).subscribe((data) => {
       console.log(data);
+      document.getElementById("urlshortner")
       this.shorturl = data;
+      console.log("this.shorturl,", this.shorturl);
     })
   }
 
